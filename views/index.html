@@ -1,0 +1,11 @@
+{% extends 'layout.html' -%}
+{% block title %}
+  {{ data.title }}
+{% endblock %}
+{% block style %}
+  {% parent %}
+  <link rel="stylesheet" href="styles/index.css">
+{% endblock %}
+{% block content %}
+  {{ data.content }}
+{% endblock %}
