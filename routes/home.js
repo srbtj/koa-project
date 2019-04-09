@@ -1,5 +1,5 @@
 const router = require('koa-router')();
-const homectrl = require('../controllers/home/HomeController');
+const homectrl = require('../controllers/HomeController');
 // router.prefix('/');
 // router.get('/', async (ctx, next) => {
 //   ctx.body = 'index page ...';

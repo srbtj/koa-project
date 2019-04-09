@@ -20,7 +20,7 @@ app.context.render = co.wrap(render(Object.assign({}, tmpl, { writeBody: false }
 // app.use(async ctx => ctx.body = await ctx.render('index'));
 
 // 加载静态资源
-console.log(__dirname);
+// console.log(__dirname);
 app.use(static(path.join(__dirname, './public')));
 
 app.use(registerRouter());
