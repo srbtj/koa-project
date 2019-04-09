@@ -1,0 +1,46 @@
+{% extends 'layout.html' -%}
+{% block title %}{{data.title}}{% endblock %}
+{% block style %}
+  {% parent %}
+  <link rel="stylesheet" href="styles/user.css">
+{% endblock %}
+{% block content %}
+  <p>
+    {% if data.type === 1 -%}
+      新增用户
+    {% elseif data.type === 2 -%}
+      编辑用户
+    {% endif -%}
+  </p>
+  <form method="post" action="/saveUser">
+    <input id="id" type="hidden" name="id" value="{{data.user.id}}">
+    <input id="username" type="text" name="username" placeholder="请输入用户名" value="{{data.user.username}}"> <br />
+    <input id="password" type="password" name="password" placeholder="请输入密码" value="{{data.user.password}}"> <br />
+    <input type="submit" id ="submit" value="提交" >
+  </form>
+{% endblock %}
+
+{% block script %}
+  <script>
+    // $('#submit').on('click', function (e) {
+    //   debugger;
+    //   e.preventDefault();
+    //   e.stopPropagation();
+    //   const id = $('#id').val();
+    //   const username = $('#username').val();
+    //   const password = $('#password').val();
+    //   console.log(id, username, password);
+    //   $.ajax({
+    //     method: 'POST',
+    //     url: '/saveUser',
+    //     // dataType: 'json',
+    //     data: {
+    //       id: id,
+    //       username: username,
+    //       password: password
+    //     },
+    //     success: function (data) {}
+    //   })
+    // });
+  </script>
+{% endblock %}

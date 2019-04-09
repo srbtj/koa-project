@@ -3,6 +3,7 @@ const path = require('path');
 const static = require('koa-static');
 const registerRouter = require('./routes');
 const render = require('koa-swig');
+const bodyParser = require('koa-bodyparser');
 const co = require('co');
 const app = new Koa();
 const {logger, accessLogger} = require('./utils/log4j-config');
@@ -22,11 +23,12 @@ app.context.render = co.wrap(render(Object.assign({}, tmpl, { writeBody: false }
 // 加载静态资源
 // console.log(__dirname);
 app.use(static(path.join(__dirname, './public')));
-
+// 解析请求体
+app.use(bodyParser());
 app.use(registerRouter());
 // 加载日志中间件
 app.use(accessLogger());
 // 开启服务
-app.listen(8080, function () {
+app.listen(8888, function () {
   console.log('启动服务成功...');
 });

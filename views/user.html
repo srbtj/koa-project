@@ -4,8 +4,46 @@
 {% endblock %}
 {% block style %}
   {% parent %}
-  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/user.css">
 {% endblock %}
 {% block content %}
-  用户列表页
+  <p>
+    <a href="/addUser" type="button" class="btn btn-success addBtn">新增</a>
+  </p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in data %}
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.password}}</td>
+          <td>
+            <a href="/editUser/{{user.id}}" type="button" class="btn btn-info editBtn">编辑</a>
+            <button class="btn btn-warning delBtn" data-id="{{user.id}}">删除</button>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block script %}
+<script>
+  $(function () {
+    // $('tr').on('click', '.editBtn', function () {
+    //   console.log($(this).attr('data-id'));
+    // });
+    $('tr').on('click', '.delBtn', function () {
+      console.log($(this).attr('data-id'));
+    });
+  });
+</script>
 {% endblock %}

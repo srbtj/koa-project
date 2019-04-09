@@ -1,18 +1,11 @@
-const {connection, pool} = require('../config/db');
+const {connHandler, poolHandler} = require('../config/db');
+// const {logger} = require('../utils/log4j-config');
 class BaseModel {
-  constructor () {
-    this.connection = connection;
-    this.pool = pool
+  constructor () {}
+  // 增删改查统一处理句柄
+  async poolHandler (sql, value) {
+    return await poolHandler(sql, value);
   }
-  async getQueryConnect () {
-    const userData = [
-      { username: 'tom', password: '123' },
-      { username: 'lili', password: '456'}
-    ];
-    return await userData;
-  }
-  async getQueryPool () {}
-
 }
 
 module.exports = BaseModel;

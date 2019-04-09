@@ -3,5 +3,10 @@ const userctrl = require('../controllers/UserController');
 
 router.prefix = '/user';
 
-router.get('/user', userctrl.getAllUserInfo);
+router
+  .get('/user', userctrl.getAllUserInfo)
+  .get('/addUser', userctrl.addUserInfo)
+  .get('/editUser/:id', userctrl.updateUserInfo)
+  .get('/delete/:id', userctrl.deleteUserInfo)
+  .post('/saveUser', userctrl.saveUserInfo);
 module.exports = router;
