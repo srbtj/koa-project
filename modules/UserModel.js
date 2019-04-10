@@ -5,22 +5,28 @@ class UserModel extends BaseModel{
     super();
   }
   // 添加用户信息
-  async addUserInfo ({username, password}) {
+  async saveOrUpdateUserInfo ({username, password, id}) {
+    console.log(this);
+    return id ? this.updateUserInfo({username, password, id}) : this.saveUserInfo({username, password});
+  }
+  async saveUserInfo ({username, password}) {
     const sql = "insert into ?? (??, ??) values(?, ?)";
     const value = ['user', 'username', 'password', username, password];
-    return await poolHandler(sql, value);
+    debugger;
+    return await this.poolHandler(sql, value);
   }
   // 修改用户信息
-  async UpdateUserInfo ({username, password, id}) {
+  async updateUserInfo ({username, password, id}) {
     const sql = "update ?? set ?? = ?, ?? = ? where ?? = ?";
-    const value = ['user', 'username', 'password', username, password, 'id', id];
-    return await poolHandler(sql, value);
+    const value = ['user', 'username', username, 'password', password, 'id', id];
+    console.log(sql);
+    return await this.poolHandler(sql, value);
   }
   // 删除用户信息
   async deleteUserInfo (id) {
     const sql = "delete from ?? where ?? = ?";
     const value = ['user', 'id', id];
-    return await poolHandler(sql, value);
+    return await this.poolHandler(sql, value);
   }
   // 查找用户信息
   async getAllUserInfo () {

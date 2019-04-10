@@ -8,5 +8,5 @@ router
   .get('/addUser', userctrl.addUserInfo)
   .get('/editUser/:id', userctrl.updateUserInfo)
   .get('/delete/:id', userctrl.deleteUserInfo)
-  .post('/saveUser', userctrl.saveUserInfo);
+  .post('/saveUser', userctrl.saveOrUpdateUserInfo);
 module.exports = router;

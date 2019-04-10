@@ -23,11 +23,16 @@ class UserController {
     };
     ctx.body = await ctx.render('addOrEditUser.html', {data});
   }
-  async saveUserInfo (ctx, next) {
-    console.log('====>>>>>', ctx.request.body);
+  async saveOrUpdateUserInfo (ctx, next) {
     const user = ctx.request.body;
+    await userService.saveOrUpdateUserInfo(user);
+    ctx.redirect('/user');
   }
-  async deleteUserInfo (ctx, next) {}
+  async deleteUserInfo (ctx, next) {
+    const id = ctx.params.id;
+    await userService.deleteUserInfo(id);
+    ctx.redirect('/user');
+  }
 };
 
 module.exports = new UserController();
