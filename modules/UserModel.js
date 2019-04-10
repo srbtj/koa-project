@@ -9,6 +9,17 @@ class UserModel extends BaseModel{
     console.log(this);
     return id ? this.updateUserInfo({username, password, id}) : this.saveUserInfo({username, password});
   }
+  /**
+   * @param {*} param0
+   * sql 格式:
+   *  ?? 表名或字段名
+   *  ? 对应的值
+   *  sql: insert into ?? (??, ??) values(?, ?)
+   *  value: ['user', 'username', 'password', username1, password1]
+   *  mysql.format(sql, value) 后 =>
+   *  insert into user (username, password) values (username1, password1);
+   *  增删改查sql语句同上;
+   */
   async saveUserInfo ({username, password}) {
     const sql = "insert into ?? (??, ??) values(?, ?)";
     const value = ['user', 'username', 'password', username, password];
