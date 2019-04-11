@@ -27,14 +27,19 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
+    preprocessors: { // 对哪些文件进行覆盖率的检查
+      'test/unit/**/*.js': ['coverage']
     },
-
+    // 设置生成的报表
+    coverageReporter: {
+      type: 'html',
+      dir: 'doc/'
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'], // 报表: 默认 progress (进行条), coverage: 覆盖率
 
 
     // web server port

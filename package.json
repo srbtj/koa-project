@@ -4,12 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "karma start test/unit/karma.config.js",
+    "test:e2e": "node ./mochaRunner.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/srbtj/koa-project.git",
-    "test:unit": "karma start test/unit/koa.config.js"
+    "url": "git+https://github.com/srbtj/koa-project.git"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +39,9 @@
     "karma-firefox-launcher": "^1.1.0",
     "karma-mocha": "^1.3.0",
     "karma-phantomjs-launcher": "^1.0.4",
-    "mocha": "^6.1.2"
+    "mocha": "^6.1.2",
+    "mochawesome": "^3.1.1",
+    "selenium-webdriver": "^4.0.0-alpha.1",
+    "supertest": "^4.0.2"
   }
 }

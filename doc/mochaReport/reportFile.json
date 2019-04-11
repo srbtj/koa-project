@@ -1,0 +1,98 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-04-11T15:59:10.754Z",
+    "end": "2019-04-11T15:59:10.831Z",
+    "duration": 77,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "522c8e96-6556-4eb1-afbc-806438e08ac8",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "1f48e0f8-b69c-442e-805c-bde3909b141c",
+        "title": "获取所有用户信息",
+        "fullFile": "/Users/tougou/workspace/node_project/koa-project/test/e2e/user.spec.js",
+        "file": "/test/e2e/user.spec.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "6265cb6c-7c84-473e-98c7-21145fcdc9aa",
+            "title": "调用获取所有用户接口: getAllUserInfo()",
+            "fullFile": "/Users/tougou/workspace/node_project/koa-project/test/e2e/user.spec.js",
+            "file": "/test/e2e/user.spec.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "has no data without error",
+                "fullTitle": "获取所有用户信息 调用获取所有用户接口: getAllUserInfo() has no data without error",
+                "timedOut": false,
+                "duration": 71,
+                "state": "passed",
+                "speed": "medium",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "userModel.getAllUserInfo().then(res => {\n  // console.log(res.length);\n  expect(res).to.be.an('array');\n  done();\n}).catch (err => {\n  done(err);\n});",
+                "err": {},
+                "isRoot": false,
+                "uuid": "3d621575-92dd-4159-9c3f-1390cc8733f5",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "3d621575-92dd-4159-9c3f-1390cc8733f5"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 71,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2019
+}
