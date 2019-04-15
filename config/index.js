@@ -8,15 +8,19 @@ let config = {
 const NODE_ENV = process.env.NODE_ENV;
 if (NODE_ENV === 'development') {
   const devConfig = {
-    port: 8888
+    port: 8888,
+    baseUrl: 'http://localhost/book/web/index.php?r='
   }
   config = _.extend(config, devConfig);
 }
 if (NODE_ENV === 'production') {
   const prodConfig = {
-    port: 80
+    port: 80,
+    baseUrl: ''
   };
   config = _.extend(config, prodConfig);
 }
+
+console.log(config);
 
 module.exports = config;

@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development supervisor ./app.js",
+    "babel": "babel ./public/js/user.js --out-file ./public/js/user.bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:unit": "karma start test/unit/karma.config.js",
     "test:e2e": "node ./mochaRunner.js"
@@ -30,11 +31,18 @@
     "koa-static": "^5.0.0",
     "koa-swig": "^2.2.1",
     "lodash": "^4.17.11",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "node-fetch": "^2.3.0",
+    "systemjs": "^3.1.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-modules-systemjs": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
     "chai": "^4.2.0",
     "cross-env": "^5.2.0",
+    "jsdoc": "^3.5.5",
     "karma": "^4.0.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",

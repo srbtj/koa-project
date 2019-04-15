@@ -12,7 +12,7 @@
       编辑用户
     {% endif -%}
   </p>
-
+  111
   <form class="form-horizontal" method="post" action="/saveUser">
     <input id="id" type="hidden" name="id" value="{{data.user.id}}">
     <div class="form-group">
@@ -36,26 +36,19 @@
 {% endblock %}
 
 {% block script %}
-  <script>
-    // $('#submit').on('click', function (e) {
-    //   debugger;
-    //   e.preventDefault();
-    //   e.stopPropagation();
-    //   const id = $('#id').val();
-    //   const username = $('#username').val();
-    //   const password = $('#password').val();
-    //   console.log(id, username, password);
-    //   $.ajax({
-    //     method: 'POST',
-    //     url: '/saveUser',
-    //     // dataType: 'json',
-    //     data: {
-    //       id: id,
-    //       username: username,
-    //       password: password
-    //     },
-    //     success: function (data) {}
-    //   })
-    // });
+  <script type="module">
+    // 如果浏支持es6模块时，直接使用
+    import('/js/user.js').then(res => {
+      const user = new res.default();
+      user.addUser();
+    });
+  </script>
+  <!-- 浏览器不运行 es6模块时，使用 SytemJS -->
+  <script type="nomodule" src="https://cdn.bootcss.com/systemjs/3.1.2/s.min.js"></script>
+  <script type="nomodule">
+    System.import('/js/user.bundle.js').then(res => {
+      const user = new res.default();
+      user.addUser();
+    });
   </script>
 {% endblock %}

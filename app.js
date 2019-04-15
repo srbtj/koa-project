@@ -39,6 +39,10 @@ app.use(bodyParser());
 initCtrl.getAllRouters(app, router);
 
 // 开启服务
-app.listen(config.port, function () {
+app.listen(8888, function () {
   console.log('启动服务成功...');
 });
+// console.log(config.port);
+// app.listen(3000, function () {
+//   console.log('启动服务...');
+// });
